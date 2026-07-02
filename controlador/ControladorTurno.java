@@ -1,9 +1,11 @@
+import java.util.ArrayList;
+
 public class ControladorTurno {
-    private ArrayList<Personaje> Escuadron;
+    private ArrayList<Personaje> escuadron;
     private int indiceTurno;
 
     public ControladorTurno(ArrayList<Personaje> escuadron) {
-        this.Escuadron = escuadron;
+        this.escuadron = escuadron;
         this.indiceTurno = 0;
     }
 
@@ -15,15 +17,15 @@ public class ControladorTurno {
 
     public void siguienteTurno() {
         // Avanzamos el índice, si llega al final, vuelve a 0 (ciclo)
-        indiceTurnoActual++;
-        if (indiceTurnoActual >= escuadron.size()) {
-            indiceTurnoActual = 0;
+        indiceTurno++;
+        if (indiceTurno >= escuadron.size()) {
+            indiceTurno = 0;
             // Aquí podríamos indicar que es el turno del enemigo, por ejemplo
         }
         
         // Al darle el turno a un personaje, reiniciamos sus puntos de acción
-        Personaje personajeActual = escuadron.get(indiceTurnoActual);
-        personajeActual.reiniciarPuntos();
+        Personaje personajeActual = escuadron.get(indiceTurno);
+        personajeActual.reiniciarPuntosAccion();
         System.out.println("Es el turno de un nuevo personaje.");
     }
 }
